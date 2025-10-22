@@ -86,6 +86,7 @@ public class WebDriverUtils {
 
 	/**
 	 * エビデンス取得
+	 * 引数として　new Object(){}　の匿名クラスを渡すことによってクラス名とメソッド名を取得している
 	 * @param instance
 	 */
 	public static void getEvidence(Object instance) {
@@ -101,6 +102,7 @@ public class WebDriverUtils {
 
 	/**
 	 * エビデンス取得（サフィックスあり）
+	 * 引数として　new Object(){}　の匿名クラスを渡すことによってクラス名とメソッド名を取得している
 	 * @param instance
 	 * @param suffix
 	 */
