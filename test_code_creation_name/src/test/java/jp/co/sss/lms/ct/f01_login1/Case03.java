@@ -81,8 +81,8 @@ public class Case03 {
 				assertTrue(loginBtn.isDisplayed(),"ログインボタンが表示されていません。");
 				assertTrue(resetLink.isDisplayed(),"パスワードリセットページへのリンクが表示されていません。");
 				
-//				//エビデンス取得
-//				getEvidence(new Object() {});
+				//エビデンス取得
+				getEvidence(new Object() {});
 	}
 
 	@Test
