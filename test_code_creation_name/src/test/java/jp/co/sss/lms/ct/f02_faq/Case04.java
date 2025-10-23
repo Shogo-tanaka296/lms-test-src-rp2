@@ -83,7 +83,7 @@ public class Case04 {
 		assertTrue(resetLink.isDisplayed(),"パスワードリセットページへのリンクが表示されていません。");
 		
 		//エビデンス取得
-		getEvidence(new Object() {});
+		getEvidence(new Object() {},"ログイン画面");
 	}	
 
 	@Test
