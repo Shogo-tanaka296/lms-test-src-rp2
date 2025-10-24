@@ -92,32 +92,32 @@ public class Case05 {
 	@DisplayName("テスト02 初回ログイン済みの受講生ユーザーでログイン")
 	void test02() {
 		//テスト用のアカウントクラス
-				TestAccount user = new TestAccount();
-				//フォームの属性を取得
-				WebElement loginFormId = webDriver.findElement(By.id("loginId"));
-				WebElement loginFormPw = webDriver.findElement(By.id("password"));
-				//フォームのクリア
-				loginFormId.clear();
-				loginFormPw.clear();
-				//フォームに入力
-				loginFormId.sendKeys(user.getUserId());
-				loginFormPw.sendKeys(user.getPassword());
-				//スクリーンショットによるエビデンスの取得（入力内容)
-				getEvidence(new Object() {},"入力内容");
-				//ログインボタン押下
-				webDriver.findElement(By.className("btn")).click();
-				//ログイン成功、画面遷移後のスクリーンショットによるエビデンスの取得
-				getEvidence(new Object() {} , "ログイン成功");
-				//画面遷移後のURLの取得
-				String loginSuccessUrl = webDriver.getCurrentUrl();
-				//画面遷移後のページタイトルの取得
-				WebElement pageTitle = webDriver.findElement(By.className("breadcrumb"));
-				//各要素の期待値との比較
-				//URLの比較
-				assertEquals("http://localhost:8080/lms/course/detail",loginSuccessUrl,"テスト対象URLと一致していません。");
-				//遷移後のページの見出しの比較
-				assertEquals("コース詳細",pageTitle.getText(),"期待値のページではありません。");
-				
+		TestAccount user = new TestAccount();
+		//フォームの属性を取得
+		WebElement loginFormId = webDriver.findElement(By.id("loginId"));
+		WebElement loginFormPw = webDriver.findElement(By.id("password"));
+		//フォームのクリア
+		loginFormId.clear();
+		loginFormPw.clear();
+		//フォームに入力
+		loginFormId.sendKeys(user.getUserId());
+		loginFormPw.sendKeys(user.getPassword());
+		//スクリーンショットによるエビデンスの取得（入力内容)
+		getEvidence(new Object() {},"入力内容");
+		//ログインボタン押下
+		webDriver.findElement(By.className("btn")).click();
+		//ログイン成功、画面遷移後のスクリーンショットによるエビデンスの取得
+		getEvidence(new Object() {} , "ログイン成功");
+		//画面遷移後のURLの取得
+		String loginSuccessUrl = webDriver.getCurrentUrl();
+		//画面遷移後のページタイトルの取得
+		WebElement pageTitle = webDriver.findElement(By.className("breadcrumb"));
+		//各要素の期待値との比較
+		//URLの比較
+		assertEquals("http://localhost:8080/lms/course/detail",loginSuccessUrl,"テスト対象URLと一致していません。");
+		//遷移後のページの見出しの比較
+		assertEquals("コース詳細",pageTitle.getText(),"期待値のページではありません。");
+
 	}
 	
 	@Test
@@ -125,46 +125,46 @@ public class Case05 {
 	@DisplayName("テスト03 上部メニューの「ヘルプ」リンクからヘルプ画面に遷移")
 	void test03() {
 		//ドロップダウンメニューの要素を取得
-				WebElement dropDowmMenu = webDriver.findElement(By.className("caret"));
-				//ドロップダウンメニューをクリックして展開
-				dropDowmMenu.click();
-				//スクリーンショットにてエビデンスを取得
-				getEvidence(new Object() {}, "ヘルプリンク");
-				//展開したドロップダウンメニューよりヘルプページへのリンクの要素を取得
-				WebElement helpLink = webDriver.findElement(By.linkText("ヘルプ"));
-				//ヘルプページへのリンクをクリックして画面遷移
-				helpLink.click();
-				//スクリーンショットにてエビデンス取得
-				getEvidence(new Object() {},"ヘルプページ");
-				//遷移先(ヘルプページ)のアドレスを取得
-				String currentUrl = webDriver.getCurrentUrl();
-				//遷移先の見出し（ヘルプ)を取得
-				WebElement helpTitle = webDriver.findElement(By.tagName("h2"));
-				//URLの比較
-				assertEquals("http://localhost:8080/lms/help",currentUrl,"期待値のＵＲＬと違います。");
-				//見出しの比較
-				assertEquals("ヘルプ",helpTitle.getText(),"遷移先の見出しが期待値と一致しません。");
-			
+		WebElement dropDowmMenu = webDriver.findElement(By.className("caret"));
+		//ドロップダウンメニューをクリックして展開
+		dropDowmMenu.click();
+		//スクリーンショットにてエビデンスを取得
+		getEvidence(new Object() {}, "ヘルプリンク");
+		//展開したドロップダウンメニューよりヘルプページへのリンクの要素を取得
+		WebElement helpLink = webDriver.findElement(By.linkText("ヘルプ"));
+		//ヘルプページへのリンクをクリックして画面遷移
+		helpLink.click();
+		//スクリーンショットにてエビデンス取得
+		getEvidence(new Object() {},"ヘルプページ");
+		//遷移先(ヘルプページ)のアドレスを取得
+		String currentUrl = webDriver.getCurrentUrl();
+		//遷移先の見出し（ヘルプ)を取得
+		WebElement helpTitle = webDriver.findElement(By.tagName("h2"));
+		//URLの比較
+		assertEquals("http://localhost:8080/lms/help",currentUrl,"期待値のＵＲＬと違います。");
+		//見出しの比較
+		assertEquals("ヘルプ",helpTitle.getText(),"遷移先の見出しが期待値と一致しません。");
+
 	}
 
 	@Test
 	@Order(4)
 	@DisplayName("テスト04 「よくある質問」リンクからよくある質問画面を別タブに開く")
 	void test04() {
-WebElement faqLink = webDriver.findElement(By.linkText("よくある質問"));
-		
+		WebElement faqLink = webDriver.findElement(By.linkText("よくある質問"));
+
 		//ここからタブを切り替える操作
 		//現在開いてるタブのハンドルを取得
 		String currentHandle = webDriver.getWindowHandle();
-		
+
 		//よくある質問画面に遷移？新しいタブで開く
 		faqLink.click();
-		
+
 		//現在あるウィンドウハンドラーをすべて取得
 		Set<String> handles = webDriver.getWindowHandles();
 		//リンクを開くことによってできた新しいタブのハンドル
 		String newHandle = null;
-		
+
 		//セットに全件取得したハンドルと現在のタブのハンドルを比較し、どれが新しいハンドルか特定
 		for(String handle : handles) {
 			if(!currentHandle.equals(handle)) {
@@ -174,23 +174,23 @@ WebElement faqLink = webDriver.findElement(By.linkText("よくある質問"));
 		}
 		//新しく開いたタブのハンドルにスイッチ
 		webDriver.switchTo().window(newHandle);
-		
+
 		//現在のページのURLを取得
 		String faqUrl = webDriver.getCurrentUrl();
 		//よくある質問ページの見出し
 		WebElement faqTitle = webDriver.findElement(By.tagName("h2"));
-		
+
 		assertEquals("http://localhost:8080/lms/faq",faqUrl,"期待値のＵＲＬと違います。");
 		assertEquals("よくある質問",faqTitle.getText(),"遷移先の見出しの期待値と一致しません");
-		
+
 		//スクリーンショットによるエビデンスの取得
 		getEvidence(new Object() {},"よくある質問ページ");
-	
+
 	}
 	@Test
 	@Order(5)
 	@DisplayName("テスト05 キーワード検索で該当キーワードを含む検索結果だけ表示")
-	void test05() {
+	void test05() throws InterruptedException {
 		//検索フォームの要素を取得
 		WebElement keywordForm = webDriver.findElement(By.id("form"));
 		//検索ボタンの要素を取得
@@ -199,20 +199,74 @@ WebElement faqLink = webDriver.findElement(By.linkText("よくある質問"));
 		keywordForm.clear();
 		//検索フォームに文字列を入力
 		keywordForm.sendKeys("研修");
+		//スクリーンショットにてエビデンス取得
+		getEvidence(new Object() {},"検索フォーム");
 		//検索ボタンを押下
 		keywordSearch.click();
 		
-		getEvidence(keywordSearch);
+		//検索ボタンを押下してから要素が表示されるまで３秒まつ
+		visibilityTimeout(By.cssSelector("dl[id^='question-h']"),3);
 		
 		
+		//質問をすべて取得し、リストに格納
+		ArrayList<WebElement> questionsList = new ArrayList<>();
+		questionsList.addAll(webDriver.findElements(By.cssSelector("dl[id^='question-h']")));
 		
+		//質問に対する回答をすべて取得し、リストに格納
+		ArrayList<WebElement> answersList = new ArrayList<>();
+		answersList.addAll(webDriver.findElements(By.cssSelector("dd[id^='answer-h']")));
+
+		//質問が1件以上あることを確認
+		assertTrue(questionsList.size() > 0, "検索結果が0件です");
+		
+		//質問をクリックして回答を展開
+		for(WebElement value : questionsList) {
+			//質問をクリックして展開
+			value.click();
+			//展開した分スクロール
+			scrollBy("200");
+			//スクロールしている間、停止
+			Thread.sleep(500);
+		}
+		//URLを取得
+		String currentURL = webDriver.getCurrentUrl();
+		//期待するURLとの比較
+		assertTrue(currentURL.contains("lms/faq?keyword="),"期待するURLと一致しません");
+		
+		//質問を格納したリストをループさせる
+		for(WebElement value : questionsList) {
+			//質問が表示されていればTrue
+			assertTrue(value.isDisplayed(),"質問が表示されていません");
+		}
+		
+		//回答を格納したリストをループさせる
+		for(WebElement value : answersList) {
+			//回答が表示されていればTrue
+			assertTrue(value.isDisplayed(),"回答が表示されていません");
+		}
+		
+		//スクリーンショットによるエビデンスの取得
+		getEvidence(new Object() {},"質問、回答");
 	}
-	
 	@Test
 	@Order(6)
 	@DisplayName("テスト06 「クリア」ボタン押下で入力したキーワードを消去")
-	void test06() {
-		// TODO ここに追加
+	void test06() throws InterruptedException {
+		//Test05にてスクロールした分を元に戻す
+		scrollTo("-500");
+		Thread.sleep(2000);
+		//ボタン押下前、スクリーンショットによるエビデンスの取得
+		getEvidence(new Object() {} , "クリア押下前");
+		//クリアーボタンの要素取得
+		WebElement clearButton = webDriver.findElement(By.cssSelector("input[type='button'][value='クリア']"));
+		//検索フォームの要素取得
+		WebElement searchForm = webDriver.findElement(By.id("form"));
+		//クリアーボタン押下
+		clearButton.click();
+		//キーワードが消去できているか検証
+		assertTrue(searchForm.getText().isEmpty(),"フォームに文字が残っています");
+		//ボタン押下後、スクリーンショットによるエビデンス取得
+		getEvidence(new Object() {},"クリア押下後");
 	}
 
 }
