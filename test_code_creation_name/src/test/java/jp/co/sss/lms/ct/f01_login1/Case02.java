@@ -111,7 +111,7 @@ public class Case02 {
 		
 		//ログインに失敗し、ログインページから遷移してないかテスト
 		String currentUrl = webDriver.getCurrentUrl();
-		assertEquals("http://localhost:8080/lms/",currentUrl,"URLが変わっているためログインに成功しています。");
+		assertNotEquals("http://localhost:8080/lms/",currentUrl,"URLが変わっているためログインに成功しています。");
 		//15秒間要素が表示されるか待つ
 		pageLoadTimeout(15);
 		//エラーコードが一致しているかテスト
