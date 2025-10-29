@@ -82,5 +82,6 @@ public class Case01 {
 		//エビデンス取得
 		getEvidence(new Object() {},"ログイン画面");
 	}
-
+//確認用
+	
 }
